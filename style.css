@@ -9,6 +9,7 @@
     --white: #ffffff;
     --border-color: #e0e0e0;
     --transition: all 0.3s ease;
+    --dull-white: #EEEADE;
 }
 
 * {
@@ -134,7 +135,7 @@ body {
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: var(--white);
+    color: var(--dull-white);
 }
 
 .hero-subtitle {
