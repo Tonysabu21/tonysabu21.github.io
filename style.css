@@ -10,16 +10,6 @@
     --border-color: #e0e0e0;
     --transition: all 0.3s ease;
     --dull-white: #EEEADE;
-
-    --bg: var(--white);
-    --nav-bg: var(--white);
-    --section-bg: var(--light-bg);
-    --card-bg: var(--white);
-    --text-color: var(--text-dark);
-    --tag-bg: #eef1f6;
-    --tag-text: var(--primary-color);
-    --footer-bg: var(--dark-bg);
-    --footer-text: var(--white);
 }
 
 * {
@@ -35,24 +25,9 @@ html {
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg);
+    color: var(--text-dark);
+    background-color: var(--white);
 }
-
-body.dark-mode {
-    --bg: #0e101a;
-    --nav-bg: rgba(15, 18, 32, 0.96);
-    --section-bg: #14182f;
-    --card-bg: #1f233f;
-    --text-color: #e6e8ff;
-    --tag-bg: rgba(255, 255, 255, 0.08);
-    --tag-text: #8ab4ff;
-    --footer-bg: #0b0d19;
-    --footer-text: #d6d4d4;
-    --primary-color: #8b5cf6;
-    --secondary-color: #38bdf8;
-}
-
 
 /* ==================== Container ==================== */
 .container {
@@ -65,7 +40,7 @@ body.dark-mode {
 .navbar {
     position: sticky;
     top: 0;
-    background-color: var(--nav-bg);
+    background-color: var(--white);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 100;
 }
@@ -75,22 +50,6 @@ body.dark-mode {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 20px;
-}
-
-.theme-toggle {
-    border: 2px solid var(--primary-color);
-    background: transparent;
-    color: var(--text-color);
-    padding: 0.65rem 1rem;
-    border-radius: 999px;
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.theme-toggle:hover,
-.theme-toggle:focus {
-    background: var(--primary-color);
-    color: var(--white);
 }
 
 .logo {
@@ -110,7 +69,24 @@ body.dark-mode {
 
 .nav-link {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    transition: var(--transition);
+}
+
+.nav-link:hover:after {
     width: 100%;
 }
 
@@ -123,7 +99,10 @@ body.dark-mode {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background-color: var(--text-color);
+    background-color: var(--text-dark);
+    margin: 5px 0;
+    transition: var(--transition);
+}
 
 /* ==================== Hero Section ==================== */
 .hero {
@@ -191,14 +170,7 @@ body.dark-mode {
     color: var(--white);
 }
 
-.btn-secondary {
-    border: 2px solid var(--primary-color);
-    background: transparent;
-    color: var(--text-color);
-}
-
-.btn-primary:hover,
-.btn-secondary:hover {
+.btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
 }
@@ -206,7 +178,7 @@ body.dark-mode {
 /* ==================== About Section ==================== */
 .about {
     padding: 80px 0;
-    background-color: var(--section-bg);
+    background-color: var(--light-bg);
 }
 
 .about h2,
@@ -216,7 +188,7 @@ body.dark-mode {
     font-size: 2.5rem;
     margin-bottom: 3rem;
     text-align: center;
-    color: var(--text-color);
+    color: var(--text-dark);
 }
 
 .about-content {
@@ -227,7 +199,7 @@ body.dark-mode {
 
 .about-content p {
     font-size: 1.1rem;
-    color: var(--text-color);
+    color: var(--text-dark);
     margin-bottom: 1.5rem;
     line-height: 1.8;
 }
@@ -244,7 +216,7 @@ body.dark-mode {
 }
 
 .project-card {
-    background: var(--card-bg);
+    background: var(--white);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -270,11 +242,11 @@ body.dark-mode {
 .project-content h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--text-color);
+    color: var(--text-dark);
 }
 
 .project-content p {
-    color: var(--text-color);
+    color: var(--text-dark);
     margin-bottom: 1rem;
     font-size: 0.95rem;
 }
@@ -288,8 +260,8 @@ body.dark-mode {
 
 .tag {
     display: inline-block;
-    background-color: var(--tag-bg);
-    color: var(--tag-text);
+    background-color: var(--light-bg);
+    color: var(--primary-color);
     padding: 0.35rem 0.75rem;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -310,7 +282,7 @@ body.dark-mode {
 /* ==================== Skills Section ==================== */
 .skills {
     padding: 80px 0;
-    background-color: var(--section-bg);
+    background-color: var(--light-bg);
 }
 
 .skills-grid {
@@ -333,7 +305,7 @@ body.dark-mode {
 
 .skill-category li {
     padding: 0.5rem 0;
-    color: var(--text-color);
+    color: var(--text-dark);
     position: relative;
     padding-left: 20px;
 }
@@ -354,7 +326,7 @@ body.dark-mode {
 
 .contact p {
     font-size: 1.1rem;
-    color: var(--text-color);
+    color: var(--text-dark);
     margin-bottom: 2rem;
     max-width: 600px;
     margin-left: auto;
@@ -384,20 +356,31 @@ body.dark-mode {
     border-radius: 5px;
 }
 
-.footer {
-    background-color: var(--footer-bg);
-    color: var(--footer-text);
-    padding: 2rem 0;
-    text-align: center;
-}
-
 .social-link:hover {
     background-color: var(--primary-color);
     color: var(--white);
 }
 
+/* ==================== Footer ==================== */
+.footer {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
         flex-direction: column;
-        background-color: var(--nav-bg);
+        background-color: var(--white);
         width: 100%;
         text-align: center;
         transition: 0.3s;
