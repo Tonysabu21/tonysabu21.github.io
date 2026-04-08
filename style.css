@@ -305,7 +305,7 @@ body {
 
 .skill-category li {
     padding: 0.5rem 0;
-    color: var(--text-light);
+    color: var(--text-dark);
     position: relative;
     padding-left: 20px;
 }
@@ -326,7 +326,7 @@ body {
 
 .contact p {
     font-size: 1.1rem;
-    color: var(--text-light);
+    color: var(--text-dark);
     margin-bottom: 2rem;
     max-width: 600px;
     margin-left: auto;
