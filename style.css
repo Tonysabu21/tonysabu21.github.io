@@ -246,7 +246,7 @@ body {
 }
 
 .project-content p {
-    color: var(--text-light);
+    color: var(--text-dark);
     margin-bottom: 1rem;
     font-size: 0.95rem;
 }
