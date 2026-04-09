@@ -245,10 +245,10 @@ body.dark-mode {
 }
 
 .project-card {
-    background: url('Portfolio%20Background%202.png');
+    background: var(--card-bg); 
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: url('Portfolio%20Background%202.png'); /*0 5px 15px rgba(0, 0, 0, 0.1);*/
     transition: var(--transition);
 }
 
