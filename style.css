@@ -258,7 +258,6 @@ body.dark-mode {
 }
 
 .project-image {
-    background: url('Portfolio%20Background%202.png'); /**/
     width: 100%;
     height: 200px;
     background-size: cover;
