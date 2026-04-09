@@ -130,9 +130,10 @@ body.dark-mode {
 .hero {
     
     background-image: url('Portfolio%20Background%202.png');
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    height: 100vh;
     padding: 220px 0;
     text-align: center;
     position: relative;
