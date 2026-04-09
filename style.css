@@ -258,8 +258,8 @@ body.dark-mode {
 }
 
 .project-image {
-    width: 100%;
-    height: 500px;
+    width: 90%;
+    height: 575px;
     background-size: cover;
     background-position: center;
 }
