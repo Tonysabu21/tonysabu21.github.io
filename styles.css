@@ -69,8 +69,16 @@ h1 {
     display: inline-block;
     margin-top: 2rem;
     text-decoration: none;
-    color: white;
-    background: #38bdf8;
     padding: 10px 20px;
     border-radius: 8px;
+
+    /* Gradient text fix */
+    background: linear-gradient(90deg, #38bdf8, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+
+    font-weight: bold;
+    font-size: 1rem;
 }
