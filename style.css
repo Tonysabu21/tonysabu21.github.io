@@ -258,6 +258,7 @@ body.dark-mode {
 }
 
 .project-image {
+    background: url('Portfolio%20Background%202.png'); /**/
     width: 100%;
     height: 200px;
     background-size: cover;
@@ -289,7 +290,7 @@ body.dark-mode {
 
 .tag {
     display: inline-block;
-    background-color: url('Portfolio%20Background%202.png');/*var(--tag-bg);*/
+    background-color: var(--tag-bg);
     color: var(--tag-text);
     padding: 0.35rem 0.75rem;
     border-radius: 20px;
