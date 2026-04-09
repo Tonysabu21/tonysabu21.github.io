@@ -245,7 +245,7 @@ body.dark-mode {
 }
 
 .project-card {
-    background: url('Portfolio%20Background%202.png');/*var(--card-bg);*/
+    background: var(--card-bg);
     border-radius: 10px;
     overflow: hidden;
     box-shadow:  0 5px 15px rgba(0, 0, 0, 0.1);
@@ -289,7 +289,7 @@ body.dark-mode {
 
 .tag {
     display: inline-block;
-    background-color: var(--tag-bg);
+    background-color: url('Portfolio%20Background%202.png');/*var(--tag-bg);*/
     color: var(--tag-text);
     padding: 0.35rem 0.75rem;
     border-radius: 20px;
