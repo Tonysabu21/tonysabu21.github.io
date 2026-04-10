@@ -173,13 +173,19 @@ const imageObserver = new IntersectionObserver((entries) => {
 
 images.forEach(img => imageObserver.observe(img));
 
-// ==================== Mouse Reactive Background ====================
+// ==================== Premium Mouse Glow System ====================
 document.addEventListener("mousemove", (e) => {
-    const bg = document.querySelector(".bg-light");
-    if (!bg) return;
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
 
-    const x = (e.clientX / window.innerWidth) * 100;
-    const y = (e.clientY / window.innerHeight) * 100;
+    const glows = document.querySelectorAll(".glow");
 
-    bg.style.transform = `translate(calc(-50% + ${x / 10}px), calc(-50% + ${y / 10}px))`;
+    glows.forEach((glow, index) => {
+        const speed = (index + 1) * 30;
+
+        const offsetX = (x - 0.5) * speed;
+        const offsetY = (y - 0.5) * speed;
+
+        glow.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+    });
 });
