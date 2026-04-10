@@ -52,7 +52,9 @@ body.dark-mode {
     --primary-color: #8b5cf6;
     --secondary-color: #38bdf8;
 }
-
+body.dark-mode .about-grid {
+    background: rgba(0, 0, 0, 0.45);
+}
 
 /* ==================== Container ==================== */
 .container {
