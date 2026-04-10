@@ -174,5 +174,22 @@
     </footer>
 
     <script src="script.js"></script>
+<script>
+const images = document.querySelectorAll('.about-img');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('show');
+            }, index * 80); // stagger effect
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+images.forEach(img => observer.observe(img));
+</script>
 </body>
 </html>
