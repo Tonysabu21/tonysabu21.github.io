@@ -157,3 +157,18 @@ scrollBtn.addEventListener('mouseleave', function() {
 });
 
 console.log('Portfolio website loaded successfully!');
+
+// ==================== About Images Animation ====================
+const images = document.querySelectorAll(".about-img");
+
+const imageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+     }
+    });
+}, {
+     threshold: 0.2
+});
+
+images.forEach(img => imageObserver.observe(img));
