@@ -16,13 +16,15 @@ body {
     z-index: 0;
 
     background: radial-gradient(
-        circle at center,
-        rgba(139, 92, 246, 0.15),
-        transparent 40%
+        circle,
+        rgba(56, 189, 248, 0.18),
+        transparent 60%
     );
 
+    filter: blur(70px);
+
+   
     transform: translate(-50%, -50%);
-    transition: transform 0.1s ease-out;
 }
 /* ==================== Gradient Text ==================== */
 .gradient-text {
