@@ -244,11 +244,10 @@ body.dark-mode {
     grid-template-columns: repeat(5, 1fr);
     gap: 8px;
     z-index: 0;
-
-    /* IMPORTANT: stronger darkening */
     opacity: 1;
 
-    filter: brightness(0.45) contrast(1.1);
+    /* adaptive tint using your theme variables */
+    background: rgba(0, 0, 0, 0.08);
 }
 /* ==================== About Images ==================== */
 .about-img {
@@ -258,17 +257,17 @@ body.dark-mode {
     background-position: center;
     border-radius: 12px;
 
-    /* NO opacity here anymore */
     opacity: 1;
 
     transform: translateY(40px);
 
-    /* makes images darker globally */
-    filter: brightness(0.6) saturate(0.85);
+    /* no global darkness — let overlay handle it */
+    filter: none;
 
     transition: transform 0.4s ease,
                 box-shadow 0.4s ease,
-                filter 0.4s ease;
+                filter 0.4s ease,
+                opacity 0.4s ease;
 
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     cursor: pointer;
@@ -282,10 +281,8 @@ body.dark-mode {
 /* hover effect */
 .about-img:hover {
     transform: scale(1.08);
-
-    /* REMOVE DARK TINT ON HOVER */
-    filter: brightness(1.05) saturate(1.05);
-
+    opacity: 1;
+    filter: brightness(1.05);
     box-shadow: 0 12px 30px rgba(0,0,0,0.25);
     z-index: 2;
 }
