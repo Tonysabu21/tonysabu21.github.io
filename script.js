@@ -173,17 +173,31 @@ const imageObserver = new IntersectionObserver((entries) => {
 
 images.forEach(img => imageObserver.observe(img));
 
-// ==================== Premium Mouse Glow System ====================
+// ==================== BACKGROUND GLOW ====================
 document.addEventListener("mousemove", (e) => {
     const glows = document.querySelectorAll(".glow");
 
-    const x = (e.clientX / window.innerWidth) - 0.5;
-    const y = (e.clientY / window.innerHeight) - 0.5;
+    const x = (e.clientX / window.innerWidth - 0.5) * 60;
+    const y = (e.clientY / window.innerHeight - 0.5) * 60;
 
-    glows.forEach((glow, i) => {
-        const strength = (i + 1) * 60;
-
-        glow.style.transform =
-            `translate(${x * strength}px, ${y * strength}px) translate(-50%, -50%)`;
+    glows.forEach((g, i) => {
+        g.style.transform = `translate(${x * (i + 1)}px, ${y * (i + 1)}px) translate(-50%, -50%)`;
     });
+});
+
+// ==================== SECTION ANIMATION ====================
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = "translateY(0)";
+        }
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".project-section, .project-split").forEach(el => {
+    el.style.opacity = 0;
+    el.style.transform = "translateY(20px)";
+    el.style.transition = "0.6s ease";
+    observer.observe(el);
 });
