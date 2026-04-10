@@ -174,11 +174,12 @@ const imageObserver = new IntersectionObserver((entries) => {
 images.forEach(img => imageObserver.observe(img));
 
 // ==================== Mouse Reactive Background ====================
-const bg = document.querySelector(".bg-light");
-
 document.addEventListener("mousemove", (e) => {
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
+    const bg = document.querySelector(".bg-light");
+    if (!bg) return;
 
-    bg.style.transform = `translate(${x * 50 - 25}%, ${y * 50 - 25}%)`;
+    const x = (e.clientX / window.innerWidth) * 100;
+    const y = (e.clientY / window.innerHeight) * 100;
+
+    bg.style.transform = `translate(calc(-50% + ${x / 10}px), calc(-50% + ${y / 10}px))`;
 });
