@@ -236,14 +236,14 @@ body.dark-mode {
 .about-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
+    gap: 8px;
     max-width: 1000px;
     margin: 40px auto 0;
 }
 
 .about-img {
     width: 100%;
-    padding-top: 100%; /* makes squares */
+    padding-top: 70%; /* makes squares */
     background-size: cover;
     background-position: center;
     border-radius: 12px;
