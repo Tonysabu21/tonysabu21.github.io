@@ -233,7 +233,38 @@ body.dark-mode {
     margin-bottom: 1.5rem;
     line-height: 1.8;
 }
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    max-width: 1000px;
+    margin: 40px auto 0;
+}
 
+.about-img {
+    width: 100%;
+    padding-top: 100%; /* makes squares */
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* when visible */
+.about-img.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 /* ==================== Projects Section ==================== */
 .projects {
     padding: 80px 0;
