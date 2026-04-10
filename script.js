@@ -176,15 +176,14 @@ images.forEach(img => imageObserver.observe(img));
 // ==================== Premium Mouse Glow System ====================
 document.addEventListener("mousemove", (e) => {
     const glows = document.querySelectorAll(".glow");
-    if (!glows.length) return;
 
     const x = (e.clientX / window.innerWidth) - 0.5;
     const y = (e.clientY / window.innerHeight) - 0.5;
 
     glows.forEach((glow, i) => {
-        const strength = (i + 1) * 40;
+        const strength = (i + 1) * 60;
 
         glow.style.transform =
-            `translate(${x * strength}px, ${y * strength}px)`;
+            `translate(${x * strength}px, ${y * strength}px) translate(-50%, -50%)`;
     });
 });
