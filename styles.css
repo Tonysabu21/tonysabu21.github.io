@@ -14,18 +14,17 @@ body {
     overflow: hidden;
 }
 
-/* shared glow style */
 .glow {
     position: absolute;
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
     filter: blur(90px);
     opacity: 0.35;
     transition: transform 0.2s ease-out;
 }
 
-/* individual colors + starting positions */
+/* positions */
 .glow-1 {
     background: rgba(56, 189, 248, 0.35);
     top: 20%;
@@ -43,6 +42,7 @@ body {
     top: 80%;
     left: 30%;
 }
+
 
 /* keep content above */
 .project-container {
@@ -67,7 +67,7 @@ body {
     padding: 2rem;
 
     position: relative;
-    z-index: 2; /* keep content above background layer */
+    z-index: 2; 
 }
 /* ==================== HERO ==================== */
 .project-hero {
