@@ -1,3 +1,166 @@
+/* ==================== Base ==================== */
+body {
+    font-family: Arial, sans-serif;
+    background: #1b1b1c;
+    color: #e2e8f0;
+    margin: 0;
+}
+
+/* ==================== Gradient Text ==================== */
+.gradient-text {
+    background: linear-gradient(135deg, #e32222, #a78bfa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ==================== Container ==================== */
+.project-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0;
+}
+
+/* ==================== HERO ==================== */
+.project-hero {
+    position: relative;
+    height: 65vh;
+    overflow: hidden;
+}
+
+.project-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* FIXED zoom issue */
+}
+
+.project-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+.project-hero h1 {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    font-size: 3rem;
+    z-index: 2;
+}
+
+/* ==================== SECTIONS ==================== */
+.project-section {
+    padding: 60px 40px;
+}
+
+.project-section h2 {
+    margin-bottom: 1rem;
+    color: #38bdf8;
+}
+
+/* ==================== SPLIT SECTION ==================== */
+.project-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 60px 40px;
+    align-items: center;
+}
+
+.project-split img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* ==================== CARDS (What You Did) ==================== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.1);
+}
+
+/* ==================== TAGS ==================== */
+.tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tags span {
+    background: #1e293b;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* ==================== GALLERY ==================== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover; /* FIXES zoom */
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.04);
+}
+
+/* ==================== BACK BUTTON ==================== */
+.back-btn {
+    display: inline-block;
+    margin: 40px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+
+    background: linear-gradient(90deg, #38bdf8, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .project-split {
+        grid-template-columns: 1fr;
+    }
+
+    .project-hero h1 {
+        font-size: 2rem;
+        left: 20px;
+        bottom: 20px;
+    }
+
+    .project-section {
+        padding: 40px 20px;
+    }
+}
+
+/*
 body {
     font-family: Arial, sans-serif;
     background: #1b1b1c;
@@ -82,3 +245,4 @@ h1 {
     font-weight: bold;
     font-size: 1rem;
 }
+*/
