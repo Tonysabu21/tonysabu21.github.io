@@ -52,8 +52,9 @@ body.dark-mode {
     --primary-color: #8b5cf6;
     --secondary-color: #38bdf8;
 }
-body.dark-mode .about-grid {
-    background: rgba(0, 0, 0, 0.45);
+
+body.dark-mode .about-img::before {
+    background: rgba(0, 0, 0, 0.55);
 }
 
 /* ==================== Container ==================== */
@@ -248,8 +249,7 @@ body.dark-mode .about-grid {
     z-index: 0;
     opacity: 1;
 
-    /* adaptive tint using your theme variables */
-    background: rgba(0, 0, 0, 0.08);
+
 }
 /* ==================== About Images ==================== */
 .about-img {
@@ -259,34 +259,48 @@ body.dark-mode .about-grid {
     background-position: center;
     border-radius: 12px;
 
-    opacity: 1;
+    position: relative;
+    overflow: hidden;
 
     transform: translateY(40px);
-
-    /* no global darkness — let overlay handle it */
-    filter: none;
-
-    transition: transform 0.4s ease,
-                box-shadow 0.4s ease,
-                filter 0.4s ease,
-                opacity 0.4s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     cursor: pointer;
+}
+
+.about-img::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(255, 255, 255, 0.22);
+
+    transition: opacity 0.35s ease;
+    z-index: 1;
 }
 
 .about-img.show {
     opacity: 1;
     transform: translateY(0);
 }
+.about-img {
+    position: relative;
+}
 
-/* hover effect */
-.about-img:hover {
-    transform: scale(1.08);
-    opacity: 1;
-    filter: brightness(1.05);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+.about-img > * {
+    position: relative;
     z-index: 2;
+}
+
+.about-img:hover {
+    transform: scale(1.07);
+    box-shadow: 0 14px 35px rgba(0,0,0,0.25);
+    z-index: 2;
+}
+
+.about-img:hover::before {
+    opacity: 0;
 }
 /* responsive */
 @media (max-width: 768px) {
@@ -299,7 +313,6 @@ body.dark-mode .about-grid {
     opacity: 1;
     transform: translateY(0);
 }
-
 
 /* ==================== Projects Section ==================== */
 .projects {
