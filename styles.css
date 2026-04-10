@@ -5,7 +5,25 @@ body {
     color: #e2e8f0;
     margin: 0;
 }
+/* ==================== Interactive Background ==================== */
+.bg-light {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    z-index: 0;
 
+    background: radial-gradient(
+        circle at center,
+        rgba(139, 92, 246, 0.15),
+        transparent 40%
+    );
+
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+}
 /* ==================== Gradient Text ==================== */
 .gradient-text {
     background: linear-gradient(135deg, #e32222, #a78bfa);
