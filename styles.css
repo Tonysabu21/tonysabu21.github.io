@@ -107,7 +107,30 @@ body {
 .project-section:nth-of-type(even) {
     background: rgba(28,29,32,0.85);
 }
+/* ==================== LAYER FIX (IMPORTANT) ==================== */
 
+/* background layer (city + glow effects) */
+.bg-light,
+.city-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* main content ABOVE background */
+.project-container {
+    position: relative;
+    z-index: 2;
+}
+
+/* hero + sections also stay above */
+.project-hero,
+.project-section,
+.project-split {
+    position: relative;
+    z-index: 2;
+}
 /* ==================== SPLIT (OVERVIEW) ==================== */
 .project-split {
     display: grid;
