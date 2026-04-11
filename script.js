@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const themeToggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme');
 
-    // 🔥 DEFAULT = DARK MODE
     if (savedTheme === 'light') {
         document.body.classList.remove('dark-mode');
     } else {
@@ -151,6 +150,56 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     console.log('Portfolio loaded successfully');
+
+    // ==================== BEFORE / AFTER SLIDER FIX ====================
+    document.querySelectorAll(".ba-slider").forEach((slider) => {
+        const after = slider.querySelector(".ba-after");
+        const handle = slider.querySelector(".ba-handle");
+
+        let isDragging = false;
+
+        function move(clientX) {
+            const rect = slider.getBoundingClientRect();
+            let x = clientX - rect.left;
+
+            if (x < 0) x = 0;
+            if (x > rect.width) x = rect.width;
+
+            const percent = (x / rect.width) * 100;
+
+            after.style.width = percent + "%";
+            handle.style.left = percent + "%";
+        }
+
+        slider.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            move(e.clientX);
+        });
+
+        window.addEventListener("mouseup", () => {
+            isDragging = false;
+        });
+
+        window.addEventListener("mousemove", (e) => {
+            if (!isDragging) return;
+            move(e.clientX);
+        });
+
+        // TOUCH SUPPORT
+        slider.addEventListener("touchstart", (e) => {
+            isDragging = true;
+            move(e.touches[0].clientX);
+        });
+
+        window.addEventListener("touchend", () => {
+            isDragging = false;
+        });
+
+        window.addEventListener("touchmove", (e) => {
+            if (!isDragging) return;
+            move(e.touches[0].clientX);
+        });
+    });
 });
 
 // ==================== SMOOTH SCROLL ====================
@@ -199,41 +248,4 @@ document.addEventListener("mousemove", (e) => {
         g.style.transform =
             `translate(${x * (i + 1)}px, ${y * (i + 1)}px) translate(-50%, -50%)`;
     });
-});
-
-const slider = document.querySelector(".ba-slider");
-const after = document.querySelector(".after-container");
-const handle = document.querySelector(".handle");
-
-let isDragging = false;
-
-function moveSlider(e) {
-    const rect = slider.getBoundingClientRect();
-    let x = e.clientX - rect.left;
-
-    // clamp values
-    if (x < 0) x = 0;
-    if (x > rect.width) x = rect.width;
-
-    const percent = (x / rect.width) * 100;
-
-    after.style.width = percent + "%";
-    handle.style.left = percent + "%";
-}
-
-slider.addEventListener("mousedown", () => isDragging = true);
-window.addEventListener("mouseup", () => isDragging = false);
-
-window.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
-    moveSlider(e);
-});
-
-/* mobile support */
-slider.addEventListener("touchstart", () => isDragging = true);
-window.addEventListener("touchend", () => isDragging = false);
-
-window.addEventListener("touchmove", (e) => {
-    if (!isDragging) return;
-    moveSlider(e.touches[0]);
 });
