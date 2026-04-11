@@ -237,24 +237,29 @@ body {
     cursor: ew-resize;
 }
 
-/* BOTH IMAGES MUST BE PERFECTLY ALIGNED */
+/* base image (before) */
 .ba-slider img {
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover;   /* THIS FIXES STRETCHING */
+    object-fit: cover;
     top: 0;
     left: 0;
 }
 
-/* AFTER LAYER CLIP */
+/* AFTER image sits on top */
 .ba-after {
     position: absolute;
     top: 0;
     left: 0;
-    width: 50%;
+    width: 100%;
     height: 100%;
-    overflow: hidden;
+}
+
+/* THIS is the key change */
+.ba-after img {
+    clip-path: inset(0 50% 0 0); /* right side hidden */
+    transition: clip-path 0.1s linear;
 }
 
 /* HANDLE */
