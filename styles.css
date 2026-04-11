@@ -228,6 +228,7 @@ body {
 }
 
 /* SLIDER CONTAINER */
+/* SLIDER CONTAINER */
 .ba-slider {
     position: relative;
     width: 100%;
@@ -251,22 +252,24 @@ body {
 /* AFTER CONTAINER (top layer) */
 .ba-after {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 50%;   /* controlled by JS */
+    height: 100%;
+    overflow: hidden;
     z-index: 2;
-    pointer-events: none; /* important */
 }
 
-/* AFTER IMAGE (THIS is what gets revealed) */
+/* AFTER IMAGE */
 .ba-after img {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-
-    /* start half revealed */
-    clip-path: inset(0 50% 0 0);
 }
+
 /* HANDLE */
 .ba-handle {
     position: absolute;
