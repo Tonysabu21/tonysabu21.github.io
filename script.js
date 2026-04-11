@@ -152,9 +152,8 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('Portfolio loaded successfully');
 
     // ==================== BEFORE / AFTER SLIDER FIX ====================
-   <script id="ba-slider-fixed">
 document.querySelectorAll(".ba-slider").forEach((slider) => {
-    const after = slider.querySelector(".ba-after img"); // target IMAGE now
+    const after = slider.querySelector(".ba-after");
     const handle = slider.querySelector(".ba-handle");
 
     let isDragging = false;
@@ -163,20 +162,15 @@ document.querySelectorAll(".ba-slider").forEach((slider) => {
         const rect = slider.getBoundingClientRect();
         let x = clientX - rect.left;
 
-        // clamp
         if (x < 0) x = 0;
         if (x > rect.width) x = rect.width;
 
         const percent = (x / rect.width) * 100;
 
-        // move handle
+        after.style.width = percent + "%";
         handle.style.left = percent + "%";
-
-        // reveal image (KEY FIX)
-        after.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
     }
 
-    // MOUSE
     slider.addEventListener("mousedown", (e) => {
         isDragging = true;
         move(e.clientX);
@@ -191,7 +185,7 @@ document.querySelectorAll(".ba-slider").forEach((slider) => {
         move(e.clientX);
     });
 
-    // TOUCH
+    // touch
     slider.addEventListener("touchstart", (e) => {
         isDragging = true;
         move(e.touches[0].clientX);
@@ -205,11 +199,7 @@ document.querySelectorAll(".ba-slider").forEach((slider) => {
         if (!isDragging) return;
         move(e.touches[0].clientX);
     });
-
-    // OPTIONAL: set default to middle
-    move(slider.getBoundingClientRect().left + slider.offsetWidth / 2);
 });
-</script>
 
 // ==================== SMOOTH SCROLL ====================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
