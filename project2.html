@@ -6,66 +6,90 @@
     <title>CBR600RR Honda Project</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-    <div class="project-container">
+<!-- SAME BACKGROUNDS AS PROJECT 1 -->
+<div class="city-bg">
+    <div class="city-layer"></div>
+</div>
 
-        <!-- Title -->
-        <h1 class="gradient-text">CBR600RR Honda Transmission & Wet Clutch Rebuild</h1>
+<div class="bg-light">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="glow glow-3"></div>
+</div>
 
-        <!-- Main Image -->
-        <div class="project-hero">
-            <img src="CBR1.jpg" alt="BMW Project">
-        </div>
+<!-- CONTENT -->
+<div class="project-container">
 
-        <!-- Overview -->
-        <section class="project-section">
+    <!-- HERO -->
+    <section class="project-hero">
+        <img src="CBR1.jpg" alt="CBR Project">
+        <h1 class="gradient-text">CBR600RR Transmission & Clutch Rebuild</h1>
+    </section>
+
+    <!-- OVERVIEW (MATCHES BMW SPLIT STYLE) -->
+    <section class="project-split">
+        <div>
             <h2>Overview</h2>
             <p>
-                This project involved rebuilding a CBR600RR's transmission and it's clutch basket in addition to its wet clutch.
-                The goal was to improve performance and allow for a more aggressive tune. The ignition was also not working due to an attempted theft, so I custom modified my own ignition with a new key.
+                This project involved rebuilding a CBR600RR transmission, clutch basket,
+                and wet clutch system to improve performance and support aggressive tuning.
+                The ignition system was also compromised due to attempted theft,
+                requiring a custom-built ignition solution.
             </p>
-        </section>
+        </div>
+        <div>
+            <img src="CBR6002.JPEG" alt="CBR Work">
+        </div>
+    </section>
 
-        <!-- What You Did -->
-        <section class="project-section">
-            <h2>What I Did</h2>
-            <ul>
-                <li>Disassembled and rebuilt transmission and clutch components</li>
-                <li>Required multimeter probing and reviewing electrical diagrams of ECU</li>
-                <li>3D printed parts to add to the look</li>
-                <li>Tested and refined final assembly</li>
-            </ul>
-        </section>
+    <!-- WHAT I DID (CARDS INSTEAD OF BULLETS) -->
+    <section class="project-section">
+        <h2>What I Did</h2>
 
-        <!-- Skills -->
-        <section class="project-section">
-            <h2>Skills Used</h2>
-            <div class="tags">
-                <span>Mechanical</span>
-                <span>CAD</span>
-                <span>Electrical Diagnosing</span>
-                <span>3D Printing</span>
-            </div>
-        </section>
+        <div class="cards">
+            <div class="card">Full teardown and rebuild of transmission components</div>
+            <div class="card">Rebuilt clutch basket and wet clutch system</div>
+            <div class="card">Used multimeter + ECU diagrams for diagnostics</div>
+            <div class="card">Custom ignition system due to theft damage</div>
+            <div class="card">3D printed custom visual components</div>
+            <div class="card">Testing and refinement of final assembly</div>
+        </div>
+    </section>
 
-        <!-- Gallery -->
-        <section class="project-section">
-            <h2>Gallery</h2>
-            <div class="gallery">
-                <img src="CBR6002.JPEG">
-                <img src="CBR6003.JPEG">
-                <img src="CBR6004.JPEG">
-            </div>
-        </section>
+    <!-- SKILLS -->
+    <section class="project-section">
+        <h2>Skills Used</h2>
 
-        <!-- Back Button -->
-        <a href="index.html" class="back-btn">
-    <span class="arrow">←</span>
-    <span>Back to Projects</span>
-</a>
+        <div class="tags">
+            <span>Mechanical</span>
+            <span>Electrical Diagnosing</span>
+            <span>CAD</span>
+            <span>3D Printing</span>
+        </div>
+    </section>
 
-    </div>
+    <!-- GALLERY -->
+    <section class="project-section">
+        <h2>Gallery</h2>
 
+        <div class="gallery">
+            <img src="CBR6002.JPEG">
+            <img src="CBR6003.JPEG">
+            <img src="CBR6004.JPEG">
+        </div>
+    </section>
+
+    <!-- BACK BUTTON -->
+    <a href="index.html" class="back-btn">
+        <span class="arrow">←</span>
+        <span>Back to Projects</span>
+    </a>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
