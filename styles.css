@@ -7,23 +7,14 @@ body {
     overflow-x: hidden;
 }
 
-/* ==================== LAYER ORDER FIX ==================== */
-.city-bg,
-.bg-light {
+/* ==================== LAYER SYSTEM (FIXED + CLEAN) ==================== */
+
+.city-bg {
     position: fixed;
     inset: 0;
-    pointer-events: none;
     z-index: 0;
-}
+    pointer-events: none;
 
-/* content always above */
-.project-container {
-    position: relative;
-    z-index: 2;
-}
-
-/* ==================== CITY BACKGROUND ==================== */
-.city-bg {
     background: radial-gradient(
         circle at 50% 20%,
         rgba(56, 189, 248, 0.10),
@@ -31,24 +22,43 @@ body {
     );
 }
 
+.bg-light {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* content always above everything */
+.project-container {
+    position: relative;
+    z-index: 5;
+}
+
+/* ==================== CITY LAYER (FULL DEPTH FIX) ==================== */
+
 .city-layer {
     position: absolute;
     inset: 0;
+
     background-image: url("NCB.jpeg");
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
 
-    opacity: 0.22;
-    animation: floatCity 10s ease-in-out infinite alternate;
+    opacity: 0.20;
+    filter: saturate(1.2) contrast(1.1);
+
+    transform: translateY(0px);
+    animation: cityFloat 10s ease-in-out infinite alternate;
 }
 
-@keyframes floatCity {
-    from { transform: translateY(8px); }
+@keyframes cityFloat {
+    from { transform: translateY(6px); }
     to   { transform: translateY(0px); }
 }
 
-/* neon overlay */
+/* neon haze */
 .city-bg::after {
     content: "";
     position: absolute;
@@ -62,22 +72,61 @@ body {
     mix-blend-mode: screen;
 }
 
-/* ==================== GLOW SYSTEM ==================== */
+/* ==================== GLOW SYSTEM (SMOOTHER + PREMIUM) ==================== */
+
 .glow {
     position: absolute;
-    width: 600px;
-    height: 600px;
+    width: 650px;
+    height: 650px;
     border-radius: 50%;
-    filter: blur(120px);
+    filter: blur(130px);
     opacity: 0.35;
     transform: translate(-50%, -50%);
+    transition: transform 0.15s ease-out;
 }
 
 .glow-1 { background: rgba(56,189,248,0.35); top: 20%; left: 25%; }
 .glow-2 { background: rgba(139,92,246,0.30); top: 60%; left: 70%; }
 .glow-3 { background: rgba(235,30,30,0.20); top: 80%; left: 30%; }
 
+/* ==================== HERO (FIXED OVERLAY STACKING) ==================== */
+
+.project-hero {
+    position: relative;
+    height: 60vh;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    z-index: 6;
+}
+
+.project-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05);
+}
+
+/* dark overlay ONLY on image */
+.project-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.1));
+    z-index: 1;
+}
+
+/* title always visible */
+.project-hero h1 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 2.5rem;
+    z-index: 2;
+}
+
 /* ==================== LAYOUT ==================== */
+
 .project-container {
     max-width: 780px;
     margin: 0 auto;
@@ -87,36 +136,8 @@ body {
     gap: 22px;
 }
 
-/* ==================== HERO ==================== */
-.project-hero {
-    position: relative;
-    height: 60vh;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-}
-
-.project-hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.project-hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.1));
-}
-
-.project-hero h1 {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    font-size: 2.5rem;
-}
-
 /* ==================== SECTIONS ==================== */
+
 .project-section,
 .project-split {
     background: rgba(34,35,38,0.85);
@@ -124,12 +145,13 @@ body {
     border-radius: 16px;
     padding: 30px;
     border: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.25s ease;
 }
 
-/* hover */
 .project-section:hover,
 .project-split:hover {
     transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
 /* split layout */
@@ -148,6 +170,7 @@ body {
 }
 
 /* ==================== ELEMENTS ==================== */
+
 .gradient-text {
     background: linear-gradient(135deg,#e32222,#a78bfa);
     -webkit-background-clip: text;
@@ -164,8 +187,15 @@ body {
     background: rgba(255,255,255,0.05);
     padding: 12px;
     border-radius: 10px;
+    transition: 0.2s ease;
 }
 
+.card:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.08);
+}
+
+/* tags */
 .tags {
     display: flex;
     gap: 10px;
@@ -178,6 +208,7 @@ body {
     border-radius: 20px;
 }
 
+/* gallery */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
@@ -189,9 +220,15 @@ body {
     height: 260px;
     object-fit: cover;
     border-radius: 10px;
+    transition: transform 0.25s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
 }
 
 /* ==================== BACK BUTTON ==================== */
+
 .back-btn {
     display: flex;
     justify-content: center;
@@ -209,7 +246,7 @@ body {
     text-decoration: none;
     font-weight: 600;
 
-    transition: 0.25s ease;
+    transition: all 0.25s ease;
 }
 
 .back-btn:hover {
@@ -225,6 +262,7 @@ body {
 }
 
 /* ==================== RESPONSIVE ==================== */
+
 @media (max-width: 768px) {
     .project-split {
         grid-template-columns: 1fr;
