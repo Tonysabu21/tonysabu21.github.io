@@ -209,14 +209,13 @@ body.dark-mode .about-img::before {
 }
 
 /* ==================== About Section ==================== */
-/*.about {
-    padding: 80px 0;
-    background-color: var(--section-bg);
-}*/
+
 .about {
     position: relative;
     padding: 80px 0;
     overflow: hidden;
+
+    min-height: 700px; 
 }
 .about h2,
 .projects h2,
