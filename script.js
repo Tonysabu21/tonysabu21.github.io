@@ -152,55 +152,64 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('Portfolio loaded successfully');
 
     // ==================== BEFORE / AFTER SLIDER FIX ====================
-    document.querySelectorAll(".ba-slider").forEach((slider) => {
-        const after = slider.querySelector(".ba-after");
-        const handle = slider.querySelector(".ba-handle");
+   <script id="ba-slider-fixed">
+document.querySelectorAll(".ba-slider").forEach((slider) => {
+    const after = slider.querySelector(".ba-after img"); // target IMAGE now
+    const handle = slider.querySelector(".ba-handle");
 
-        let isDragging = false;
+    let isDragging = false;
 
-        function move(clientX) {
-            const rect = slider.getBoundingClientRect();
-            let x = clientX - rect.left;
+    function move(clientX) {
+        const rect = slider.getBoundingClientRect();
+        let x = clientX - rect.left;
 
-            if (x < 0) x = 0;
-            if (x > rect.width) x = rect.width;
+        // clamp
+        if (x < 0) x = 0;
+        if (x > rect.width) x = rect.width;
 
-            const percent = (x / rect.width) * 100;
+        const percent = (x / rect.width) * 100;
 
-            after.style.width = percent + "%";
-            handle.style.left = percent + "%";
-        }
+        // move handle
+        handle.style.left = percent + "%";
 
-        slider.addEventListener("mousedown", (e) => {
-            isDragging = true;
-            move(e.clientX);
-        });
+        // reveal image (KEY FIX)
+        after.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+    }
 
-        window.addEventListener("mouseup", () => {
-            isDragging = false;
-        });
-
-        window.addEventListener("mousemove", (e) => {
-            if (!isDragging) return;
-            move(e.clientX);
-        });
-
-        // TOUCH SUPPORT
-        slider.addEventListener("touchstart", (e) => {
-            isDragging = true;
-            move(e.touches[0].clientX);
-        });
-
-        window.addEventListener("touchend", () => {
-            isDragging = false;
-        });
-
-        window.addEventListener("touchmove", (e) => {
-            if (!isDragging) return;
-            move(e.touches[0].clientX);
-        });
+    // MOUSE
+    slider.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        move(e.clientX);
     });
+
+    window.addEventListener("mouseup", () => {
+        isDragging = false;
+    });
+
+    window.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        move(e.clientX);
+    });
+
+    // TOUCH
+    slider.addEventListener("touchstart", (e) => {
+        isDragging = true;
+        move(e.touches[0].clientX);
+    });
+
+    window.addEventListener("touchend", () => {
+        isDragging = false;
+    });
+
+    window.addEventListener("touchmove", (e) => {
+        if (!isDragging) return;
+        move(e.touches[0].clientX);
+    });
+
+    // OPTIONAL: set default to middle
+    move(slider.getBoundingClientRect().left + slider.offsetWidth / 2);
 });
+</script>
 
 // ==================== SMOOTH SCROLL ====================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
