@@ -568,10 +568,7 @@ body.dark-mode .about-img::before {
     }
 }
 
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 1.5rem;
-    }
+
 
     .hero-subtitle {
         font-size: 1rem;
@@ -596,10 +593,7 @@ body.dark-mode .about-img::before {
         font-size: 2rem;
     }
 
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
+    
     .skills-grid {
         grid-template-columns: 1fr;
     }
@@ -609,27 +603,3 @@ body.dark-mode .about-img::before {
     }
 
 
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 1.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .about h2,
-    .projects h2,
-    .skills h2,
-    .contact h2 {
-        font-size: 1.5rem;
-    }
-
-    .social-links {
-        flex-direction: column;
-    }
-
-    .contact-content {
-        flex-direction: column;
-    }
-}
