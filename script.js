@@ -200,3 +200,40 @@ document.addEventListener("mousemove", (e) => {
             `translate(${x * (i + 1)}px, ${y * (i + 1)}px) translate(-50%, -50%)`;
     });
 });
+
+const slider = document.querySelector(".ba-slider");
+const after = document.querySelector(".after-container");
+const handle = document.querySelector(".handle");
+
+let isDragging = false;
+
+function moveSlider(e) {
+    const rect = slider.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+
+    // clamp values
+    if (x < 0) x = 0;
+    if (x > rect.width) x = rect.width;
+
+    const percent = (x / rect.width) * 100;
+
+    after.style.width = percent + "%";
+    handle.style.left = percent + "%";
+}
+
+slider.addEventListener("mousedown", () => isDragging = true);
+window.addEventListener("mouseup", () => isDragging = false);
+
+window.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    moveSlider(e);
+});
+
+/* mobile support */
+slider.addEventListener("touchstart", () => isDragging = true);
+window.addEventListener("touchend", () => isDragging = false);
+
+window.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    moveSlider(e.touches[0]);
+});
