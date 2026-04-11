@@ -152,52 +152,53 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('Portfolio loaded successfully');
 
     // ==================== BEFORE / AFTER SLIDER FIX ====================
-document.querySelectorAll(".ba-slider").forEach((slider) => {
-    const after = slider.querySelector(".ba-after");
-    const handle = slider.querySelector(".ba-handle");
+    document.querySelectorAll(".ba-slider").forEach((slider) => {
+        const after = slider.querySelector(".ba-after");
+        const handle = slider.querySelector(".ba-handle");
 
-    let isDragging = false;
+        let isDragging = false;
 
-    function move(clientX) {
-        const rect = slider.getBoundingClientRect();
-        let x = clientX - rect.left;
+        function move(clientX) {
+            const rect = slider.getBoundingClientRect();
+            let x = clientX - rect.left;
 
-        if (x < 0) x = 0;
-        if (x > rect.width) x = rect.width;
+            if (x < 0) x = 0;
+            if (x > rect.width) x = rect.width;
 
-        const percent = (x / rect.width) * 100;
+            const percent = (x / rect.width) * 100;
 
-        after.style.width = percent + "%";
-        handle.style.left = percent + "%";
-    }
+            after.style.width = percent + "%";
+            handle.style.left = percent + "%";
+        }
 
-    slider.addEventListener("mousedown", (e) => {
-        isDragging = true;
-        move(e.clientX);
-    });
+        slider.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            move(e.clientX);
+        });
 
-    window.addEventListener("mouseup", () => {
-        isDragging = false;
-    });
+        window.addEventListener("mouseup", () => {
+            isDragging = false;
+        });
 
-    window.addEventListener("mousemove", (e) => {
-        if (!isDragging) return;
-        move(e.clientX);
-    });
+        window.addEventListener("mousemove", (e) => {
+            if (!isDragging) return;
+            move(e.clientX);
+        });
 
-    // touch
-    slider.addEventListener("touchstart", (e) => {
-        isDragging = true;
-        move(e.touches[0].clientX);
-    });
+        // TOUCH SUPPORT
+        slider.addEventListener("touchstart", (e) => {
+            isDragging = true;
+            move(e.touches[0].clientX);
+        });
 
-    window.addEventListener("touchend", () => {
-        isDragging = false;
-    });
+        window.addEventListener("touchend", () => {
+            isDragging = false;
+        });
 
-    window.addEventListener("touchmove", (e) => {
-        if (!isDragging) return;
-        move(e.touches[0].clientX);
+        window.addEventListener("touchmove", (e) => {
+            if (!isDragging) return;
+            move(e.touches[0].clientX);
+        });
     });
 });
 
