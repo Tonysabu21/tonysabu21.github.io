@@ -1,6 +1,7 @@
 /* ==================== Variables & Reset ==================== */
+/*
 :root {
-    --primary-color: #eb1e1e; /*#667eea*/
+    --primary-color: #eb1e1e; 
     --secondary-color: #764ba2;
     --dark-bg: #1a1a2e;
     --light-bg: #f5f7fa;
@@ -58,6 +59,7 @@ body.dark-mode .about-img::before {
 }
 
 /* ==================== Container ==================== */
+/*
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -65,6 +67,7 @@ body.dark-mode .about-img::before {
 }
 
 /* ==================== Navigation ==================== */
+/*
 .navbar {
     position: sticky;
     top: 0;
@@ -130,6 +133,7 @@ body.dark-mode .about-img::before {
 }
 
 /* ==================== Hero Section ==================== */
+/*
 .hero {
     
     background-image: url('Portfolio%20Background%202.png');
@@ -178,6 +182,7 @@ body.dark-mode .about-img::before {
 }
 
 /* ==================== Buttons ==================== */
+/*
 .btn {
     display: inline-block;
     padding: 12px 30px;
@@ -213,6 +218,7 @@ body.dark-mode .about-img::before {
     padding: 80px 0;
     background-color: var(--section-bg);
 }*/
+/*
 .about {
     position: relative;
     padding: 80px 0;
@@ -252,6 +258,7 @@ body.dark-mode .about-img::before {
 
 }
 /* ==================== About Images ==================== */
+/*
 .about-img {
     width: 100%;
     padding-top: 70%;
@@ -303,18 +310,21 @@ body.dark-mode .about-img::before {
     opacity: 0;
 }
 /* responsive */
+/*
 @media (max-width: 768px) {
     .about-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 /* when visible */
+/*
 .about-img.show {
     opacity: 1;
     transform: translateY(0);
 }
 
 /* ==================== Projects Section ==================== */
+/*
 .projects {
     padding: 80px 0;
 }
@@ -344,12 +354,6 @@ body.dark-mode .about-img::before {
     background-position: center;
     background-repeat: no-repeat;
 }
-/*.project-image {
-    width: 100%;
-    height: 300px;
-    background-size: cover;
-    background-position: center;
-}*/
 
 .project-content {
     padding: 2rem;
@@ -396,6 +400,7 @@ body.dark-mode .about-img::before {
 }
 
 /* ==================== Skills Section ==================== */
+/*
 .skills {
     padding: 80px 0;
     background-color: var(--section-bg);
@@ -435,6 +440,7 @@ body.dark-mode .about-img::before {
 }
 
 /* ==================== Contact Section ==================== */
+/*
 .contact {
     padding: 80px 0;
     text-align: center;
@@ -610,5 +616,226 @@ body.dark-mode .about-img::before {
 
     .contact-content {
         flex-direction: column;
+    }
+}
+*/
+/* ==================== VARIABLES & RESET ==================== */
+:root {
+    --primary-color: #eb1e1e;
+    --secondary-color: #764ba2;
+    --dark-bg: #1a1a2e;
+    --light-bg: #f5f7fa;
+    --text-dark: #333;
+    --text-light: #d6d4d4;
+    --white: #ffffff;
+    --border-color: #e0e0e0;
+    --transition: all 0.3s ease;
+    --dull-white: #EEEADE;
+
+    --bg: var(--white);
+    --nav-bg: var(--white);
+    --section-bg: var(--light-bg);
+    --card-bg: var(--white);
+    --text-color: var(--text-dark);
+    --tag-bg: #eef1f6;
+    --tag-text: var(--primary-color);
+    --footer-bg: var(--dark-bg);
+    --footer-text: var(--white);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg);
+}
+
+/* ==================== DARK MODE ==================== */
+body.dark-mode {
+    --bg: #0e101a;
+    --nav-bg: rgba(15, 18, 32, 0.96);
+    --section-bg: #14182f;
+    --card-bg: #1f233f;
+    --text-color: #e6e8ff;
+    --tag-bg: rgba(255, 255, 255, 0.08);
+    --tag-text: #8ab4ff;
+    --footer-bg: #0b0d19;
+    --footer-text: #d6d4d4;
+    --primary-color: #8b5cf6;
+    --secondary-color: #38bdf8;
+}
+
+/* ==================== CONTAINER ==================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==================== NAV ==================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: var(--nav-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+/* ==================== HERO ==================== */
+.hero {
+    background-image: url('Portfolio%20Background%202.png');
+    background-size: cover;
+    background-position: center;
+    height: 95vh;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.1);
+}
+
+/* ==================== SECTION BACKGROUND SYSTEM (PREMIUM CORE) ==================== */
+.section-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+/* image layer */
+.section-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.08);
+    filter: brightness(0.75) saturate(1.2);
+    z-index: 0;
+}
+
+/* dark overlay */
+.section-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.85)
+    );
+    z-index: 1;
+}
+
+/* content above */
+.section-bg > .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* ==================== PROJECTS BACKGROUND ==================== */
+.projects-bg::after {
+    background-image: url("335ix Background1.jpg");
+}
+
+/* ==================== SKILLS BACKGROUND ==================== */
+.skills-bg::after {
+    background-image: url("skills-bg.jpg");
+}
+
+/* ==================== ABOUT ==================== */
+.about {
+    position: relative;
+    padding: 80px 0;
+}
+
+/* ==================== PROJECTS ==================== */
+.projects {
+    padding: 80px 0;
+}
+
+/* ==================== SKILLS ==================== */
+.skills {
+    padding: 80px 0;
+}
+
+/* ==================== PROJECT CARD ==================== */
+.project-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+/* ==================== BUTTONS ==================== */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+/* ==================== BACK BUTTON FIX (no transparency issue) ==================== */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 18px;
+    margin: 20px auto;
+
+    background: rgba(20, 20, 30, 0.85);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+
+    backdrop-filter: blur(12px);
+    transition: all 0.25s ease;
+}
+
+.back-btn:hover {
+    transform: translateY(-3px);
+}
+
+.back-btn .arrow {
+    transition: transform 0.3s ease;
+}
+
+.back-btn:hover .arrow {
+    transform: translateX(-6px);
+}
+
+/* ==================== ABOUT GRID ==================== */
+.about-grid {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    z-index: 0;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
 }
