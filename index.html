@@ -7,17 +7,11 @@
     <title>Tony Sabu - Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <!-- ================= CURSOR GLOW (REQUIRED FOR PREMIUM EFFECT) ================= -->
-    <div class="cursor-glow"></div>
-
-    <!-- ================= NAVIGATION ================= -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="logo">Tony Sabu</div>
-
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -25,11 +19,7 @@
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-
-            <button id="themeToggle" class="btn btn-secondary theme-toggle" type="button">
-                Dark Mode
-            </button>
-
+            <button id="themeToggle" class="btn btn-secondary theme-toggle" type="button" aria-label="Toggle dark mode">Dark Mode</button>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -38,63 +28,51 @@
         </div>
     </nav>
 
-    <!-- ================= HERO ================= -->
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Hi, I'm Tony Sabu</h1>
                 <p class="hero-subtitle">EW Sergeant | Engineer | Developer</p>
-                <p class="hero-description">
-                    Welcome to my portfolio. I love designing and creating projects.
-                </p>
+                <p class="hero-description">Welcome to my portfolio. I love designing and creating projects.</p>
                 <a href="#projects" class="btn btn-primary">View My Work</a>
             </div>
         </div>
     </section>
 
-    <!-- ================= ABOUT ================= -->
+    <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-
             <h2>About Me</h2>
-
             <div class="about-content">
-                <p>
-                    I'm a US Army 17E SGT, a technician at Mystic Lake, and a full time student
-                    with a love for creating and designing products that have real world applications.
-                </p>
-                <p>
-                    When I'm not coding or designing, you can find me exploring new technologies,
-                    diagnosing broken tools and machinery, or enjoying the outdoors.
-                </p>
+                <p>I'm a US Army 17E SGT, a technician at Mystic Lake, and a full time student with a love for creating and designing products that have real world applications.</p>
+                <p>When I'm not coding or designing, you can find me exploring new technologies, diagnosing broken tools and machinery, or enjoying the outdoors.</p>
             </div>
-
             <div class="about-grid">
-                <div class="about-img" style="background-image:url('about1.JPEG')"></div>
-                <div class="about-img" style="background-image:url('about2.JPG')"></div>
-                <div class="about-img" style="background-image:url('about3.jpg')"></div>
-                <div class="about-img" style="background-image:url('about4.JPG')"></div>
-                <div class="about-img" style="background-image:url('about5.jpg')"></div>
-                <div class="about-img" style="background-image:url('about6.jpg')"></div>
-                <div class="about-img" style="background-image:url('about7.jpg')"></div>
-                <div class="about-img" style="background-image:url('about8.JPEG')"></div>
-                <div class="about-img" style="background-image:url('about9.jpg')"></div>
-                <div class="about-img" style="background-image:url('about10.jpg')"></div>
+                <div class="about-img" style="background-image: url('about1.JPEG')"></div>
+                <div class="about-img" style="background-image: url('about2.JPG')"></div>
+                <div class="about-img" style="background-image: url('about3.jpg')"></div>
+                <div class="about-img" style="background-image: url('about4.JPG')"></div>
+                <div class="about-img" style="background-image: url('about5.jpg')"></div>
+                <div class="about-img" style="background-image: url('about6.jpg')"></div>
+                <div class="about-img" style="background-image: url('about7.jpg')"></div>
+                <div class="about-img" style="background-image: url('about8.JPEG')"></div>
+                <div class="about-img" style="background-image: url('about9.jpg')"></div>
+                <div class="about-img" style="background-image: url('about10.jpg')"></div>
+                
             </div>
-
+            
         </div>
     </section>
 
-    <!-- ================= PROJECTS ================= -->
+    <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-
             <h2>Recent Projects</h2>
-
             <div class="projects-grid">
-
+                <!-- Project 1 -->
                 <div class="project-card">
-                    <div class="project-image" style="background:url('335ix%20Background1.jpg') center/cover no-repeat;"></div>
+                    <div class="project-image" style="background: url('335ix%20Background1.jpg')center/cover no-repeat;/*linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/"></div>
                     <div class="project-content">
                         <h3>Project 335ix BMW</h3>
                         <p>Rebuilt A N55 BMW Engine and Redesigned Headlights</p>
@@ -107,21 +85,23 @@
                     </div>
                 </div>
 
+                <!-- Project 2 -->
                 <div class="project-card">
-                    <div class="project-image" style="background:url('CBR600%20Background1.jpg') center/cover no-repeat;"></div>
+                    <div class="project-image" style="background: url('CBR600%20Background1.jpg')center/cover no-repeat;/*linear-gradient(135deg, #f093fb 0%, #f5576c 100%);*/"></div>
                     <div class="project-content">
                         <h3>Project CBR600RR Honda</h3>
                         <p>Diagnosed and Fixed Broken CBR600RR Honda Motorcycle</p>
                         <div class="project-tags">
                             <span class="tag">Mechanical Knowledge</span>
-                            <span class="tag">Electrical Diagnosing</span>
+                            <span class="tag">Electrical Knowledge/Diagnosing</span>
                         </div>
                         <a href="project2" class="project-link">View Project →</a>
                     </div>
                 </div>
 
+                <!-- Project 3 -->
                 <div class="project-card">
-                    <div class="project-image" style="background:url('Horse%20Background2.jpg') center/cover no-repeat;"></div>
+                    <div class="project-image" style="background: url('Horse%20Background2.jpg')center/cover no-repeat;/*linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);*/"></div>
                     <div class="project-content">
                         <h3>Project Horse</h3>
                         <p>Designed a 3D Model of an Ancient Sculpture</p>
@@ -133,42 +113,36 @@
                         <a href="project3" class="project-link">View Project →</a>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </section>
 
-    <!-- ================= SKILLS ================= -->
+    <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-
             <h2>Skills</h2>
-
             <div class="skills-grid">
-
                 <div class="skill-category">
                     <h3>Education & Certifications</h3>
                     <ul>
-                        <li>Honor Graduate - 17E Cyber School of Excellence</li>
-                        <li>AA Degree - Normandale College</li>
-                        <li>TS/SCI Clearance Level</li>
-                        <li>US Army Leadership Award</li>
-                        <li>BET Lab Certified (17E MOS)</li>
+                        <li>Honor Graudate -17E Cyber School of Excellence</li>
+                         <li>Honor Graudate -AA Degree From Normandale College</li>
+                         <li>TS/SCI Clearence Level</li>
+                         <li>Leadership Award Certificate -US Army</li>
+                        <li>BET Lab Certified Through 17E MOS</li>
                     </ul>
                 </div>
-
                 <div class="skill-category">
                     <h3>Core Skills</h3>
                     <ul>
                         <li>Troubleshooting</li>
                         <li>GD&T Familiarity</li>
                         <li>Mechanical Knowledge</li>
-                        <li>Circuit Diagnosing</li>
-                        <li>Electromagnetic Spectrum</li>
+                        <li>Soldering and Circuit Diagnosing</li>
+                        <li>Mechanical and Technical Diagnosing</li>
+                        <li>Understanding the Electromagnetic Spectrum</li>
                     </ul>
                 </div>
-
                 <div class="skill-category">
                     <h3>Tools & Others</h3>
                     <ul>
@@ -178,35 +152,26 @@
                         <li>VS Code</li>
                     </ul>
                 </div>
-
             </div>
-
         </div>
     </section>
 
-    <!-- ================= CONTACT ================= -->
+    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-
             <h2>Get In Touch</h2>
-
-            <p>
-                Feel free to reach out if you'd like to work together or just want to say hello!
-            </p>
-
+            <p>Feel free to reach out if you'd like to work together or just want to say hello!</p>
             <div class="contact-content">
                 <a href="mailto:tonysabu21@gmail.com" class="btn btn-primary">Send Email</a>
-
                 <div class="social-links">
                     <a href="https://github.com/tonysabu21" target="_blank" class="social-link">GitHub</a>
                     <a href="https://www.linkedin.com/in/tony-sabu21" target="_blank" class="social-link">LinkedIn</a>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- ================= FOOTER ================= -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 Tony Sabu. All rights reserved.</p>
@@ -214,35 +179,22 @@
     </footer>
 
     <script src="script.js"></script>
+<script>
+const images = document.querySelectorAll('.about-img');
 
-    <!-- ================= ABOUT ANIMATION ================= -->
-    <script>
-        const images = document.querySelectorAll('.about-img');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('show');
+            }, index * 80); // stagger effect
+        }
+    });
+}, {
+    threshold: 0.2
+});
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('show');
-                    }, index * 80);
-                }
-            });
-        }, { threshold: 0.2 });
-
-        images.forEach(img => observer.observe(img));
-    </script>
-
-    <!-- ================= CURSOR GLOW SCRIPT ================= -->
-    <script>
-        const glow = document.querySelector(".cursor-glow");
-
-        document.addEventListener("mousemove", (e) => {
-            if (!glow) return;
-            glow.style.left = e.clientX + "px";
-            glow.style.top = e.clientY + "px";
-        });
-    </script>
-
+images.forEach(img => observer.observe(img));
+</script>
 </body>
 </html>
-  
