@@ -7,7 +7,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ==================== LAYER SYSTEM ==================== */
+/* ==================== LAYER SYSTEM (FIXED + CLEAN) ==================== */
 
 .city-bg {
     position: fixed;
@@ -33,15 +33,9 @@ body {
 .project-container {
     position: relative;
     z-index: 5;
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
 }
 
-/* ==================== CITY BACKGROUND ==================== */
+/* ==================== CITY LAYER (FULL DEPTH FIX) ==================== */
 
 .city-layer {
     position: absolute;
@@ -54,6 +48,8 @@ body {
 
     opacity: 0.20;
     filter: saturate(1.2) contrast(1.1);
+
+    transform: translateY(0px);
     animation: cityFloat 10s ease-in-out infinite alternate;
 }
 
@@ -62,6 +58,7 @@ body {
     to   { transform: translateY(0px); }
 }
 
+/* neon haze */
 .city-bg::after {
     content: "";
     position: absolute;
@@ -75,7 +72,7 @@ body {
     mix-blend-mode: screen;
 }
 
-/* ==================== GLOW ==================== */
+/* ==================== GLOW SYSTEM (SMOOTHER + PREMIUM) ==================== */
 
 .glow {
     position: absolute;
@@ -85,13 +82,14 @@ body {
     filter: blur(130px);
     opacity: 0.35;
     transform: translate(-50%, -50%);
+    transition: transform 0.15s ease-out;
 }
 
 .glow-1 { background: rgba(56,189,248,0.35); top: 20%; left: 25%; }
 .glow-2 { background: rgba(139,92,246,0.30); top: 60%; left: 70%; }
 .glow-3 { background: rgba(235,30,30,0.20); top: 80%; left: 30%; }
 
-/* ==================== HERO ==================== */
+/* ==================== HERO (FIXED OVERLAY STACKING) ==================== */
 
 .project-hero {
     position: relative;
@@ -99,6 +97,7 @@ body {
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    z-index: 6;
 }
 
 .project-hero img {
@@ -108,18 +107,33 @@ body {
     transform: scale(1.05);
 }
 
+/* dark overlay ONLY on image */
 .project-hero::after {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.1));
+    z-index: 1;
 }
 
+/* title always visible */
 .project-hero h1 {
     position: absolute;
     bottom: 20px;
     left: 20px;
     font-size: 2.5rem;
+    z-index: 2;
+}
+
+/* ==================== LAYOUT ==================== */
+
+.project-container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
 }
 
 /* ==================== SECTIONS ==================== */
@@ -131,9 +145,16 @@ body {
     border-radius: 16px;
     padding: 30px;
     border: 1px solid rgba(255,255,255,0.06);
-    transition: 0.25s ease;
+    transition: all 0.25s ease;
 }
 
+.project-section:hover,
+.project-split:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* split layout */
 .project-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -166,6 +187,12 @@ body {
     background: rgba(255,255,255,0.05);
     padding: 12px;
     border-radius: 10px;
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.08);
 }
 
 /* tags */
@@ -193,9 +220,12 @@ body {
     height: 260px;
     object-fit: cover;
     border-radius: 10px;
+    transition: transform 0.25s ease;
 }
 
-/* ==================== BEFORE / AFTER SLIDER (FIXED) ==================== */
+.gallery img:hover {
+    transform: scale(1.05);
+}
 
 .ba-slider {
     position: relative;
@@ -205,19 +235,19 @@ body {
     overflow: hidden;
     border-radius: 12px;
     cursor: ew-resize;
-    user-select: none;
 }
 
-/* BEFORE IMAGE */
-.ba-before {
+/* BOTH IMAGES MUST BE PERFECTLY ALIGNED */
+.ba-slider img {
     position: absolute;
-    inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;   /* THIS FIXES STRETCHING */
+    top: 0;
+    left: 0;
 }
 
-/* AFTER CLIP */
+/* AFTER LAYER CLIP */
 .ba-after {
     position: absolute;
     top: 0;
@@ -225,13 +255,6 @@ body {
     width: 50%;
     height: 100%;
     overflow: hidden;
-}
-
-/* AFTER IMAGE */
-.ba-after img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 /* HANDLE */
@@ -245,32 +268,103 @@ body {
     transform: translateX(-50%);
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     z-index: 10;
+}
+/* AFTER IMAGE CONTAINER (THIS IS WHAT MOVES) */
+.after-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;          /* start halfway */
+    overflow: hidden;
+}
+
+/* AFTER IMAGE INSIDE CLIP */
+.after-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* KEY FIX AGAIN */
+}
+
+/* HANDLE */
+.handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 100%;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    transform: translateX(-50%);
     pointer-events: none;
 }
 
-/* IMPORTANT FIX: remove transition so drag is smooth */
-.ba-after,
-.ba-handle {
-    transition: none;
-}
-
 /* ==================== BACK BUTTON ==================== */
-
 .back-btn {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+
     margin: 25px auto;
     padding: 12px 20px;
 
     font-weight: 600;
-    color: #fff;
+    font-size: 0.95rem;
     text-decoration: none;
 
+    color: #ffffff;
+
+    
     background: linear-gradient(135deg, #38bdf8, #a78bfa);
+
+    border: none;
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.35),
+        0 0 20px rgba(56,189,248,0.15);
+
+    transition: all 0.25s ease;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* subtle shine overlay */
+.back-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.12);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+/* hover effect */
+.back-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow:
+        0 18px 45px rgba(0,0,0,0.55),
+        0 0 30px rgba(139,92,246,0.25);
+}
+
+.back-btn:hover::before {
+    opacity: 1;
+}
+
+/* arrow animation */
+.back-btn .arrow {
+    transition: transform 0.3s ease;
+}
+
+.back-btn:hover .arrow {
+    transform: translateX(-6px);
+}
+
+/* click feel */
+.back-btn:active {
+    transform: translateY(-1px) scale(0.98);
 }
 
 /* ==================== RESPONSIVE ==================== */
