@@ -237,17 +237,18 @@ body {
     cursor: ew-resize;
 }
 
-/* base image (before) */
-.ba-slider img {
+/* BEFORE image (bottom layer) */
+.ba-before {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
     top: 0;
     left: 0;
+    z-index: 1;
 }
 
-/* AFTER image sits on top */
+/* AFTER container (top layer) */
 .ba-after {
     position: absolute;
     top: 0;
@@ -256,12 +257,20 @@ body {
     height: 100%;
 }
 
-/* THIS is the key change */
+/* AFTER image (the ONLY thing we clip) */
 .ba-after img {
-    clip-path: inset(0 50% 0 0); /* right side hidden */
-    transition: clip-path 0.1s linear;
-}
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
 
+    z-index: 2;
+
+    /* start at 50% reveal */
+    clip-path: inset(0 50% 0 0);
+}
 /* HANDLE */
 .ba-handle {
     position: absolute;
