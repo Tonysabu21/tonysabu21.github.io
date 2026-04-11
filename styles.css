@@ -175,14 +175,75 @@ body {
 }
 
 /* ==================== BACK BUTTON ==================== */
+/* ==================== BACK BUTTON (ANIMATED ARROW) ==================== */
 .back-btn {
-    display: block;
-    text-align: center;
-    margin-top: 10px;
-    font-weight: bold;
-    background: linear-gradient(90deg,#38bdf8,#a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin: 30px auto 10px;
+    padding: 12px 18px;
+
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+
+    color: #e2e8f0;
+
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+
+    transition: all 0.25s ease;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* gradient hover glow */
+.back-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(56,189,248,0.25), rgba(167,139,250,0.25));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+/* arrow animation */
+.back-btn .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* hover effects */
+.back-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    border-color: rgba(139,92,246,0.4);
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.55),
+        0 0 25px rgba(139,139,250,0.15);
+}
+
+.back-btn:hover::before {
+    opacity: 1;
+}
+
+/* 🔥 arrow slides left on hover */
+.back-btn:hover .arrow {
+    transform: translateX(-6px);
+}
+
+/* click effect */
+.back-btn:active {
+    transform: translateY(-1px) scale(0.98);
 }
 
 /* ==================== RESPONSIVE ==================== */
