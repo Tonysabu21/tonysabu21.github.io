@@ -6,62 +6,90 @@
     <title>Ancient Horse Project</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-    <div class="project-container">
+<!-- SAME PREMIUM BACKGROUND SYSTEM -->
+<div class="city-bg">
+    <div class="city-layer"></div>
+</div>
 
-        <!-- Title -->
-        <h1 class="gradient-text">Ancient Horse Project</h1>
+<div class="bg-light">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="glow glow-3"></div>
+</div>
 
-        <!-- Main Image -->
-        <div class="project-hero">
-            <img src="Horse1.jpeg" alt="BMW Project">
+<!-- MAIN CONTAINER -->
+<div class="project-container">
+
+    <!-- HERO -->
+    <section class="project-hero">
+        <img src="Horse1.jpeg" alt="Horse Project">
+        <h1 class="gradient-text">Ancient Horse 3D Reconstruction</h1>
+    </section>
+
+    <!-- OVERVIEW (SPLIT STYLE LIKE BMW) -->
+    <section class="project-split">
+        <div>
+            <h2>Overview</h2>
+            <p>
+                The goal of this project was to recreate an ancient sculpture using only a reference image.
+                Using depth analysis from shadows and structural estimation, I rebuilt the model digitally
+                and prepared it for 3D printing.
+            </p>
         </div>
 
-        <!-- Overview -->
-        <section class="project-section">
-            <h2 class="gradient-text">Overview</h2>
-            <p>
-                The goal was to re-create this sculpture in real life by just using a picture online.
-                Using different points of reference, I was able to sculpt this model and adjust depths based on shadows.
-            </p>
-        </section>
+        <div>
+            <img src="Horse2.jpg" alt="Horse Model Process">
+        </div>
+    </section>
 
-        <!-- What You Did -->
-        <section class="project-section">
-            <h2 class="gradient-text">What I Did</h2>
-            <ul>
-                <li>Started off with a base model to modify</li>
-                <li>Made adjustments using CAD and other STL compatible software like Bambu Labs</li>
-                <li>3D printed prototype product and made adjustments where necessary</li>
-                <li>Smoothed out and refined final product</li>
-            </ul>
-        </section>
+    <!-- WHAT I DID (CARDS LIKE BMW/CBR) -->
+    <section class="project-section">
+        <h2>What I Did</h2>
 
-        <!-- Skills -->
-        <section class="project-section">
-            <h2 class="gradient-text">Skills Used</h2>
-            <div class="tags">
-                <span>Designing & Modeling</span>
-                <span>CAD</span>
-                <span>3D Printing</span>
-            </div>
-        </section>
+        <div class="cards">
+            <div class="card">Built base mesh model for sculpting workflow</div>
+            <div class="card">Refined geometry using CAD + STL editing tools</div>
+            <div class="card">Interpreted depth using lighting and shadow analysis</div>
+            <div class="card">3D printed prototype for real-world validation</div>
+            <div class="card">Iterative refinement for structural accuracy</div>
+            <div class="card">Final smoothing and surface finishing</div>
+        </div>
+    </section>
 
-        <!-- Gallery -->
-        <section class="project-section">
-            <h2 class="gradient-text">Gallery</h2>
-            <div class="gallery">
-                <img src="Horse2.jpg">
-                <img src="Horse3.jpg">
-                <img src="Horse4.jpg">
-            </div>
-        </section>
+    <!-- SKILLS -->
+    <section class="project-section">
+        <h2>Skills Used</h2>
 
-        <!-- Back Button -->
-        <a href="index.html" class="back-btn">← Back to Projects</a>
+        <div class="tags">
+            <span>3D Modeling</span>
+            <span>CAD</span>
+            <span>3D Printing</span>
+            <span>Design Analysis</span>
+        </div>
+    </section>
 
-    </div>
+    <!-- GALLERY -->
+    <section class="project-section">
+        <h2>Gallery</h2>
 
+        <div class="gallery">
+            <img src="Horse2.jpg">
+            <img src="Horse3.jpg">
+            <img src="Horse4.jpg">
+        </div>
+    </section>
+
+    <!-- BACK BUTTON -->
+    <a href="index.html" class="back-btn">
+        <span class="arrow">←</span>
+        <span>Back to Projects</span>
+    </a>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
