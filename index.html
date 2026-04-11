@@ -10,7 +10,10 @@
 
 <body>
 
-    <!-- Navigation -->
+    <!-- ================= CURSOR GLOW (REQUIRED FOR PREMIUM EFFECT) ================= -->
+    <div class="cursor-glow"></div>
+
+    <!-- ================= NAVIGATION ================= -->
     <nav class="navbar">
         <div class="container">
             <div class="logo">Tony Sabu</div>
@@ -35,7 +38,7 @@
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- ================= HERO ================= -->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
@@ -49,9 +52,10 @@
         </div>
     </section>
 
-    <!-- About -->
+    <!-- ================= ABOUT ================= -->
     <section id="about" class="about">
         <div class="container">
+
             <h2>About Me</h2>
 
             <div class="about-content">
@@ -77,12 +81,14 @@
                 <div class="about-img" style="background-image:url('about9.jpg')"></div>
                 <div class="about-img" style="background-image:url('about10.jpg')"></div>
             </div>
+
         </div>
     </section>
 
-    <!-- Projects -->
+    <!-- ================= PROJECTS ================= -->
     <section id="projects" class="projects">
         <div class="container">
+
             <h2>Recent Projects</h2>
 
             <div class="projects-grid">
@@ -129,12 +135,14 @@
                 </div>
 
             </div>
+
         </div>
     </section>
 
-    <!-- Skills -->
+    <!-- ================= SKILLS ================= -->
     <section id="skills" class="skills">
         <div class="container">
+
             <h2>Skills</h2>
 
             <div class="skills-grid">
@@ -144,7 +152,7 @@
                     <ul>
                         <li>Honor Graduate - 17E Cyber School of Excellence</li>
                         <li>AA Degree - Normandale College</li>
-                        <li>TS/SCI Clearance</li>
+                        <li>TS/SCI Clearance Level</li>
                         <li>US Army Leadership Award</li>
                         <li>BET Lab Certified (17E MOS)</li>
                     </ul>
@@ -172,12 +180,14 @@
                 </div>
 
             </div>
+
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- ================= CONTACT ================= -->
     <section id="contact" class="contact">
         <div class="container">
+
             <h2>Get In Touch</h2>
 
             <p>
@@ -192,10 +202,11 @@
                     <a href="https://www.linkedin.com/in/tony-sabu21" target="_blank" class="social-link">LinkedIn</a>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ================= FOOTER ================= -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 Tony Sabu. All rights reserved.</p>
@@ -204,7 +215,7 @@
 
     <script src="script.js"></script>
 
-    <!-- About animation (safe) -->
+    <!-- ================= ABOUT ANIMATION ================= -->
     <script>
         const images = document.querySelectorAll('.about-img');
 
@@ -219,6 +230,17 @@
         }, { threshold: 0.2 });
 
         images.forEach(img => observer.observe(img));
+    </script>
+
+    <!-- ================= CURSOR GLOW SCRIPT ================= -->
+    <script>
+        const glow = document.querySelector(".cursor-glow");
+
+        document.addEventListener("mousemove", (e) => {
+            if (!glow) return;
+            glow.style.left = e.clientX + "px";
+            glow.style.top = e.clientY + "px";
+        });
     </script>
 
 </body>
