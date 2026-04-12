@@ -581,7 +581,6 @@ body.dark-mode .about-img::before {
     }
 
 /* ==================== Skills Upgrade ==================== */
-
 /* Turn each category into a card */
 .skill-category {
     background: var(--card-bg);
@@ -617,10 +616,23 @@ body.dark-mode .about-img::before {
     margin-top: 0.5rem;
 }
 
-/* Smooth list appearance */
+/* ✅ FIXED list + arrow alignment */
 .skill-category li {
     padding: 0.5rem 0;
+    padding-left: 28px; /* space for arrow */
+    position: relative;
+
     transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.skill-category li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%); /* perfectly center */
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
 /* Subtle hover on individual skills */
