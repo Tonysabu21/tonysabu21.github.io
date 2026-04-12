@@ -406,11 +406,11 @@ body.dark-mode .about-img::before {
     margin: 0 auto;
     text-align: center;
 
-    padding: 2rem 2.5rem;
-    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
 
     /* glass effect */
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 
