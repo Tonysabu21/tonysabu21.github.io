@@ -653,3 +653,28 @@ body.dark-mode .about-img::before {
 .skill-category:nth-child(3) h3::before {
     content: "🛠️ ";
 }
+.skills {
+    padding: 80px 0;
+
+    background-image: url('your-image.jpg'); /* <-- change this */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+}
+
+/* Dark overlay so text/cards stay readable */
+.skills::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5); /* adjust darkness here */
+    z-index: 0;
+}
+
+/* Make sure content sits above overlay */
+.skills .container {
+    position: relative;
+    z-index: 1;
+}
