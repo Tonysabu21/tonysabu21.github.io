@@ -329,13 +329,25 @@ body.dark-mode .about-img::before {
     background: rgba(0, 0, 0, 0.5);
     z-index: 0;
 }
-.about p,
-.about h2,
-.projects h2,
-.skills h2,
+
+
+.projects h2 {
+    color: var(--white);
+    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.skills h2 {
+    color: var(--white);
+    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+.about h2 {
+    color: var(--white);
+    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
 .contact h2 {
     color: var(--text-color);
 }
+
 .about-content,
 .about h2 {
     position: relative;
