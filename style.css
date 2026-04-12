@@ -564,7 +564,7 @@ body.dark-mode .about-img::before {
         grid-template-columns: 1fr;
     }
 
-    /* ✅ THIS is the ONLY place skills should stack */
+    
     .skills-grid {
         grid-template-columns: 1fr;
     }
@@ -580,4 +580,64 @@ body.dark-mode .about-img::before {
 }
     }
 
+/* ==================== Skills Upgrade ==================== */
 
+/* Turn each category into a card */
+.skill-category {
+    background: var(--card-bg);
+    padding: 1.8rem;
+    border-radius: 12px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: all 0.35s ease;
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Hover effect (matches project cards vibe) */
+.skill-category:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+}
+
+/* Title styling upgrade */
+.skill-category h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.2rem;
+
+    border-bottom: 2px solid rgba(0,0,0,0.05);
+    padding-bottom: 0.5rem;
+}
+
+/* Better spacing for list */
+.skill-category ul {
+    margin-top: 0.5rem;
+}
+
+/* Smooth list appearance */
+.skill-category li {
+    padding: 0.5rem 0;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Subtle hover on individual skills */
+.skill-category li:hover {
+    transform: translateX(5px);
+    color: var(--primary-color);
+}
+
+/* ==================== Icons (no HTML changes needed) ==================== */
+.skill-category:nth-child(1) h3::before {
+    content: "🎓 ";
+}
+
+.skill-category:nth-child(2) h3::before {
+    content: "⚙️ ";
+}
+
+.skill-category:nth-child(3) h3::before {
+    content: "🛠️ ";
+}
