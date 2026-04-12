@@ -210,175 +210,20 @@ body.dark-mode .about-img::before {
 
 /* ==================== About Section ==================== */
 
+/* ==================== ABOUT SECTION ==================== */
+
 .about {
     position: relative;
     padding: 80px 0;
-    overflow: hidden;
-
-    min-height: 520px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.projects h2,
-.skills h2 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    text-align: center;
-    color: var(--white);
-    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
-}
-
-.contact h2 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    text-align: center;
-    color: var(--text-color);
-}
-
-.about h2 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    text-align: center;
-    color: var(--text-color);
-}
-
-.about-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.about-content,
-.about h2 {
-    position: relative;
-    z-index: 2;
-}
-
-.about-grid {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 8px;
-    z-index: 0;
-    opacity: 1;
-
-
-}
-/* ==================== About Images ==================== */
-.about-img {
-    width: 100%;
-    padding-top: 70%;
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px;
-
-    position: relative;
-    overflow: hidden;
-
-    transform: translateY(40px);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    cursor: pointer;
-}
-
-.about-img::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background: rgba(255, 255, 255, 0.65);
-
-    transition: opacity 0.35s ease;
-    z-index: 1;
-}
-
-.about-img.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-.about-img {
-    position: relative;
-}
-
-.about-img > * {
-    position: relative;
-    z-index: 2;
-}
-
-.about-img:hover {
-    transform: scale(1.07);
-    box-shadow: 0 14px 35px rgba(0,0,0,0.25);
-    z-index: 2;
-}
-
-.about-img:hover::before {
-    opacity: 0;
-}
-/* responsive */
-@media (max-width: 768px) {
-    .about-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-/* when visible */
-.about-img.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-.about-content p {
-    color: var(--text-color);
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-}
-
-.about::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 0;
-}
-
-
-.projects h2 {
-    color: var(--white);
-    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
-}
-
-.skills h2 {
-    color: var(--white);
-    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
-}
-.about h2 {
-    color: var(--white);
-    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
-}
-.contact h2 {
-    color: var(--text-color);
-}
-
-.about-content,
-.about h2 {
-    position: relative;
-    z-index: 2;
-}
-.about-img {
-    z-index: 1;
-}
-.about {
-    position: relative;
-    padding: 80px 0;
-    overflow: hidden;
-
     min-height: 520px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    overflow: visible; /* important for hover pop */
 }
 
-/* Background overlay (keeps image visible but controlled) */
+/* dark overlay behind everything */
 .about::before {
     content: '';
     position: absolute;
@@ -387,48 +232,93 @@ body.dark-mode .about-img::before {
     z-index: 0;
 }
 
-/* Title */
+/* grid background */
+.about-grid {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    z-index: 0;
+}
+
+/* title */
 .about h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     text-align: center;
-
     color: var(--white);
     text-shadow: 0 4px 12px rgba(0,0,0,0.6);
-
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
-/* MAIN CONTENT CARD (THIS is the upgrade) */
+/* ==================== CONTENT BOX ==================== */
+
 .about-content {
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
 
-    padding: .7rem 1rem;
+    padding: 0.6rem 1rem; /* smaller = less bulky */
     border-radius: 8px;
 
-    /* glass effect */
     background: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 
     position: relative;
-    z-index: 2;
-
-    transition: all 0.3s ease;
+    z-index: 3;
 }
 
-/* Paragraph styling */
 .about-content p {
     color: var(--white);
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
     line-height: 1.6;
 }
 
+/* ==================== IMAGE GRID ==================== */
+
+.about-img {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    padding-top: 70%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+
+    overflow: hidden;
+    cursor: pointer;
+
+    transform: translateY(40px);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* overlay tint */
+.about-img::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.65);
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+/* ==================== HOVER FIX (IMPORTANT PART) ==================== */
+
+/* make hovered image rise ABOVE EVERYTHING in about section */
+.about-img:hover {
+    z-index: 50; /* key fix */
+    transform: scale(1.12) translateY(-6px);
+
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+}
+
+.about-img:hover::before {
+    opacity: 0;
+}
 /* ==================== LIGHT MODE OVERRIDES ==================== */
 body:not(.dark-mode) .about::before {
     background: rgba(255, 255, 255, 0.25);
