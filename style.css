@@ -413,8 +413,8 @@ body.dark-mode .about-img::before {
     margin: 0 auto;
     text-align: center;
 
-    padding: 1rem 1.5rem;
-    border-radius: 10px;
+    padding: .5rem .8rem;
+    border-radius: 4px;
 
     /* glass effect */
     background: rgba(0, 0, 0, 0.25);
