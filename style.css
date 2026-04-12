@@ -226,7 +226,7 @@ body:not(.dark-mode) .about-content p {
     flex-direction: column;
     justify-content: center;
 }
-.about h2,
+/*.about h2,*/
 .projects h2,
 .skills h2,
 .contact h2 {
