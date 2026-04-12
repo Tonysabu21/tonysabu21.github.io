@@ -407,9 +407,9 @@ body.dark-mode .about-img::before {
     z-index: 2;
 }
 
-/* MAIN CONTENT CARD (THIS is the upgrade) */
+/* MAIN CONTENT CARD) */
 .about-content {
-    max-width: 800px;
+    max-width: 1100px;
     margin: 0 auto;
     text-align: center;
 
