@@ -393,7 +393,9 @@ body.dark-mode .about-img::before {
     position: relative;
     z-index: 1;
 }
-
+body .about h2 {
+    color: var(--text-color) !important;
+}
 /* ==================== PROJECT GRID ==================== */
 .projects-grid {
     display: grid;
