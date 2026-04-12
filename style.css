@@ -327,12 +327,20 @@ body.dark-mode .about-img::before {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+    z-index: 0;
 }
 .about,
 .projects,
 .skills {
     color: var(--white);
+}
+.about-content,
+.about h2 {
+    position: relative;
+    z-index: 2;
+}
+.about-img {
+    z-index: 1;
 }
 /* ==================== Projects Section ==================== */
 .projects {
