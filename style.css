@@ -513,6 +513,7 @@ body.dark-mode .about-img::before {
     color: var(--white);
 }
 
+/* ==================== Responsive ==================== */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -540,10 +541,6 @@ body.dark-mode .about-img::before {
         padding: 1rem;
     }
 
-    .nav-link:after {
-        display: none;
-    }
-
     .hero-content h1 {
         font-size: 2rem;
     }
@@ -567,47 +564,20 @@ body.dark-mode .about-img::before {
         grid-template-columns: 1fr;
     }
 
+    /* ✅ THIS is the ONLY place skills should stack */
     .skills-grid {
         grid-template-columns: 1fr;
     }
 
     .contact-content {
+        flex-direction: column;
         gap: 1.5rem;
-    }
-}
-
-
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .about h2,
-    .projects h2,
-    .skills h2,
-    .contact h2 {
-        font-size: 1.5rem;
     }
 
     .social-links {
         flex-direction: column;
     }
-
-    .contact-content {
-        flex-direction: column;
-    }
 }
-    .contact h2 {
-        font-size: 2rem;
-    }
-
-    
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-content {
-        gap: 1.5rem;
     }
 
 
