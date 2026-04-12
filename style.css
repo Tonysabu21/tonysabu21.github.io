@@ -583,22 +583,30 @@ body.dark-mode .about-img::before {
 /* ==================== Skills Upgrade ==================== */
 /* Turn each category into a card */
 .skill-category {
-    background: var(--card-bg);
+    background: rgba(20, 20, 30, 0.92); /* more solid so it pops */
     padding: 1.8rem;
     border-radius: 12px;
 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    box-shadow: 
+        0 10px 25px rgba(0,0,0,0.35),
+        0 0 0 1px rgba(255,255,255,0.05);
+
     transition: all 0.35s ease;
 
     display: flex;
     flex-direction: column;
     height: 100%;
+
+    backdrop-filter: blur(6px);
 }
 
 /* Hover effect (matches project cards vibe) */
 .skill-category:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    transform: translateY(-12px) scale(1.02);
+
+    box-shadow: 
+        0 20px 50px rgba(0,0,0,0.5),
+        0 0 20px rgba(235, 30, 30, 0.25); /* red glow */
 }
 
 /* Title styling upgrade */
@@ -607,7 +615,7 @@ body.dark-mode .about-img::before {
     color: var(--primary-color);
     margin-bottom: 1.2rem;
 
-    border-bottom: 2px solid rgba(0,0,0,0.05);
+    border-bottom: 2px solid rgba(255,255,255,0.08);
     padding-bottom: 0.5rem;
 }
 
@@ -616,10 +624,10 @@ body.dark-mode .about-img::before {
     margin-top: 0.5rem;
 }
 
-/* ✅ FIXED list + arrow alignment */
+/* FIXED list + arrow alignment */
 .skill-category li {
     padding: 0.5rem 0;
-    padding-left: 28px; /* space for arrow */
+    padding-left: 28px;
     position: relative;
 
     transition: transform 0.2s ease, color 0.2s ease;
@@ -630,7 +638,7 @@ body.dark-mode .about-img::before {
     position: absolute;
     left: 0;
     top: 50%;
-    transform: translateY(-50%); /* perfectly center */
+    transform: translateY(-50%);
     color: var(--primary-color);
     font-weight: bold;
 }
@@ -641,7 +649,7 @@ body.dark-mode .about-img::before {
     color: var(--primary-color);
 }
 
-/* ==================== Icons (no HTML changes needed) ==================== */
+/* ==================== Icons ==================== */
 .skill-category:nth-child(1) h3::before {
     content: "🎓 ";
 }
@@ -653,10 +661,12 @@ body.dark-mode .about-img::before {
 .skill-category:nth-child(3) h3::before {
     content: "🛠️ ";
 }
+
+/* ==================== Skills Background ==================== */
 .skills {
     padding: 80px 0;
 
-    background-image: url('NCB.jpeg'); 
+    background-image: url('NCB.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -664,16 +674,16 @@ body.dark-mode .about-img::before {
     position: relative;
 }
 
-/* Dark overlay so text/cards stay readable */
+/* Dark overlay so cards stand out */
 .skills::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5); /* adjust darkness here */
+    background: rgba(0, 0, 0, 0.65); /* darker for better contrast */
     z-index: 0;
 }
 
-/* Make sure content sits above overlay */
+/* Ensure content is above overlay */
 .skills .container {
     position: relative;
     z-index: 1;
