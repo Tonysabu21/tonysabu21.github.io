@@ -220,16 +220,27 @@ body.dark-mode .about-img::before {
     flex-direction: column;
     justify-content: center;
 }
-.about h2,
 .projects h2,
-.skills h2,
+.skills h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--white);
+    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
 .contact h2 {
     font-size: 2.5rem;
     margin-bottom: 3rem;
     text-align: center;
+    color: var(--text-color);
+}
 
-    color: var(--white);
-    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--text-color);
 }
 
 .about-content {
