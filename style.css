@@ -210,6 +210,7 @@ body.dark-mode .about-img::before {
 
 /* ==================== About Section ==================== */
 
+
 /* ==================== ABOUT SECTION ==================== */
 
 .about {
@@ -223,7 +224,7 @@ body.dark-mode .about-img::before {
     overflow: visible;
 }
 
-/* dark overlay behind everything */
+/* dark overlay */
 .about::before {
     content: '';
     position: absolute;
@@ -232,7 +233,7 @@ body.dark-mode .about-img::before {
     z-index: 0;
 }
 
-/* grid background */
+/* grid behind everything */
 .about-grid {
     position: absolute;
     inset: 0;
@@ -245,18 +246,22 @@ body.dark-mode .about-img::before {
 /* ==================== TITLE ==================== */
 
 .about h2 {
+    position: relative;
+    z-index: 5;
+
     font-size: 2.5rem;
     margin-bottom: 2rem;
     text-align: center;
     color: var(--white);
     text-shadow: 0 4px 12px rgba(0,0,0,0.6);
-    position: relative;
-    z-index: 5;
 }
 
 /* ==================== CONTENT BOX ==================== */
 
 .about-content {
+    position: relative;
+    z-index: 2; /* IMPORTANT: LOWER than images on hover */
+
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
@@ -268,9 +273,6 @@ body.dark-mode .about-img::before {
     backdrop-filter: blur(8px);
 
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-
-    position: relative;
-    z-index: 4; /* ABOVE images */
 }
 
 .about-content p {
@@ -282,6 +284,7 @@ body.dark-mode .about-img::before {
 
 .about-img {
     position: relative;
+    z-index: 1;
 
     width: 100%;
     padding-top: 70%;
@@ -292,14 +295,10 @@ body.dark-mode .about-img::before {
     overflow: hidden;
     cursor: pointer;
 
-    z-index: 1;
-
-    /* IMPORTANT: remove heavy translate that caused jumping */
-    transform: translateY(15px);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: none; /* REMOVE movement completely */
 }
 
-/* overlay tint */
+/* tint overlay */
 .about-img::before {
     content: "";
     position: absolute;
@@ -309,17 +308,13 @@ body.dark-mode .about-img::before {
     z-index: 1;
 }
 
-/* ==================== HOVER FIX ==================== */
+/* ==================== HOVER ==================== */
 
 .about-img:hover {
-    z-index: 10;
-
-    /* smoother lift (no extreme jump) */
-    transform: translateY(-8px) scale(1.08);
-
-    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+    z-index: 10; /* pops ABOVE content box */
 }
 
+/* remove tint only */
 .about-img:hover::before {
     opacity: 0;
 }
