@@ -220,7 +220,7 @@ body.dark-mode .about-img::before {
     flex-direction: column;
     justify-content: center;
 
-    overflow: visible; /* important for hover pop */
+    overflow: visible;
 }
 
 /* dark overlay behind everything */
@@ -242,7 +242,8 @@ body.dark-mode .about-img::before {
     z-index: 0;
 }
 
-/* title */
+/* ==================== TITLE ==================== */
+
 .about h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
@@ -250,7 +251,7 @@ body.dark-mode .about-img::before {
     color: var(--white);
     text-shadow: 0 4px 12px rgba(0,0,0,0.6);
     position: relative;
-    z-index: 3;
+    z-index: 5;
 }
 
 /* ==================== CONTENT BOX ==================== */
@@ -260,7 +261,7 @@ body.dark-mode .about-img::before {
     margin: 0 auto;
     text-align: center;
 
-    padding: 0.6rem 1rem; /* smaller = less bulky */
+    padding: 0.6rem 1rem;
     border-radius: 8px;
 
     background: rgba(0, 0, 0, 0.25);
@@ -269,7 +270,7 @@ body.dark-mode .about-img::before {
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 
     position: relative;
-    z-index: 3;
+    z-index: 4; /* ABOVE images */
 }
 
 .about-content p {
@@ -281,7 +282,6 @@ body.dark-mode .about-img::before {
 
 .about-img {
     position: relative;
-    z-index: 1;
 
     width: 100%;
     padding-top: 70%;
@@ -292,8 +292,11 @@ body.dark-mode .about-img::before {
     overflow: hidden;
     cursor: pointer;
 
-    transform: translateY(40px);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    z-index: 1;
+
+    /* IMPORTANT: remove heavy translate that caused jumping */
+    transform: translateY(15px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 /* overlay tint */
@@ -302,16 +305,17 @@ body.dark-mode .about-img::before {
     position: absolute;
     inset: 0;
     background: rgba(255, 255, 255, 0.65);
-    transition: opacity 0.3s ease;
+    transition: opacity 0.25s ease;
     z-index: 1;
 }
 
-/* ==================== HOVER FIX (IMPORTANT PART) ==================== */
+/* ==================== HOVER FIX ==================== */
 
-/* make hovered image rise ABOVE EVERYTHING in about section */
 .about-img:hover {
-    z-index: 50; /* key fix */
-    transform: scale(1.12) translateY(-6px);
+    z-index: 10;
+
+    /* smoother lift (no extreme jump) */
+    transform: translateY(-8px) scale(1.08);
 
     box-shadow: 0 25px 60px rgba(0,0,0,0.4);
 }
